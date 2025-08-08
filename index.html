@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Musical Online</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #0055aa;
+        }
+        nav a {
+            color: white;
+            padding: 1rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background: #003366;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .card h3 {
+            margin: 0;
+            padding: 10px;
+            font-size: 1.1rem;
+        }
+        .card p {
+            padding: 0 10px;
+            flex: 1;
+        }
+        .price {
+            font-weight: bold;
+            padding: 0 10px;
+            margin-bottom: 10px;
+            color: #0055aa;
+        }
+        .btn {
+            background: #0055aa;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background: #003366;
+        }
+        footer {
+            text-align: center;
+            background: #003366;
+            color: white;
+            padding: 1rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Tienda Musical Online</h1>
+    <p>Inspirada en Mixup</p>
+</header>
+
+<nav>
+    <a href="#">Inicio</a>
+    <a href="#">Música</a>
+    <a href="#">Películas</a>
+    <a href="#">Coleccionables</a>
+</nav>
+
+<section class="container" id="product-list">
+    <!-- Productos generados por JS -->
+</section>
+
+<footer>
+    &copy; 2025 Tienda Musical - Prototipo HTML/CSS/JS
+</footer>
+
+<script>
+const products = [
+    { name: "Álbum Vinilo Clásico", price: 450, image: "https://picsum.photos/400/300?random=1" },
+    { name: "CD Rock Nacional", price: 250, image: "https://picsum.photos/400/300?random=2" },
+    { name: "Blu-ray Película Épica", price: 350, image: "https://picsum.photos/400/300?random=3" },
+    { name: "Figura de Colección", price: 800, image: "https://picsum.photos/400/300?random=4" }
+];
+
+const container = document.getElementById("product-list");
+
+products.forEach(prod => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    card.innerHTML = `
+        <img src="${prod.image}" alt="${prod.name}">
+        <h3>${prod.name}</h3>
+        <p>Producto de alta calidad, ideal para coleccionistas y amantes de la música y el cine.</p>
+        <div class="price">$${prod.price} MXN</div>
+        <button class="btn">Agregar al carrito</button>
+    `;
+
+    container.appendChild(card);
+});
+</script>
+
+</body>
+</html>
